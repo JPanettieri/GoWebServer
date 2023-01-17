@@ -27,7 +27,7 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func msgHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/Custom Msg Goes Here" {
+	if r.URL.Path != "/About Me Msg Goes Here" {
 		http.Error(w, "404 not found", http.StatusNotFound)
 		return
 	}
@@ -42,7 +42,7 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
 	http.Handle("/", fileServer)
 	http.HandleFunc("/form", contactHandler)
-	http.HandleFunc("/hello", msgHandler)
+	http.HandleFunc("/aboutMe", msgHandler)
 
 	fmt.Printf("starting Server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
