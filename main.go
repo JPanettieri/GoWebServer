@@ -27,7 +27,7 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func msgHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/About Me Msg Goes Here" {
+	if r.URL.Path != "/aboutMe" {
 		http.Error(w, "404 not found", http.StatusNotFound)
 		return
 	}
@@ -35,7 +35,7 @@ func msgHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method is not supported", http.StatusNotFound)
 		return
 	}
-	fmt.Fprintf(w, "hello")
+	fmt.Fprintf(w, "About Me Msg Goes Here")
 }
 
 func main() {
